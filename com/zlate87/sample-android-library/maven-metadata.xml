@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.zlate87</groupId>
+  <artifactId>sample-android-library</artifactId>
+  <versioning>
+    <versions>
+      <version>1.0.5-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20161006160120</lastUpdated>
+  </versioning>
+</metadata>
