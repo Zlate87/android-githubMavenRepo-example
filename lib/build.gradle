@@ -38,7 +38,7 @@ uploadArchives {
 
         pom.project {
             groupId = 'com.zlate87'
-            version = '1.0.2-SNAPSHOT'
+            version = '1.0.3'
             artifactId = 'sample-android-library'
             packaging 'aar'
         }
@@ -46,11 +46,5 @@ uploadArchives {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:23.+'
-    testCompile 'junit:junit:4.12'
     deployLibrary "ar.com.synergian:wagon-git:0.3.0"
 }
