@@ -31,14 +31,14 @@ uploadArchives {
 
     repositories.mavenDeployer {
         configuration = configurations.deployLibrary
-        repository(url: 'git:releases://git@github.com:zlate87/maven-repository.git')
-        snapshotRepository(url: 'git:snapshots://git@github.com:zlate87/maven-repository.git')
+        repository(url: 'git:releases://git@github.com:zlate87/android-githubMavenRepo-example.git')
+        snapshotRepository(url: 'git:snapshots://git@github.com:zlate87/android-githubMavenRepo-example.git')
 
         uniqueVersion = true
 
         pom.project {
             groupId = 'com.zlate87'
-            version = '1.0.3'
+            version = '1.0.5-SNAPSHOT'
             artifactId = 'sample-android-library'
             packaging 'aar'
         }
