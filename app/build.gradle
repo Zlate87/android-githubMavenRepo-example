@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+apply plugin: 'maven'
+
+repositories {
+    maven { url "https://raw.github.com/synergian/wagon-git/releases" }
+}
+
+configurations {
+    deployLibrary
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+uploadArchives {
+
+    repositories.mavenDeployer {
+        configuration = configurations.deployLibrary
+        repository(url: 'git:releases://git@github.com:zlate87/maven-repository.git')
+        snapshotRepository(url: 'git:snapshots://git@github.com:zlate87/maven-repository.git')
+
+        uniqueVersion = true
+
+        pom.project {
+            groupId = 'com.zlate87'
+            version = '1.0.2-SNAPSHOT'
+            artifactId = 'sample-android-library'
+            packaging 'aar'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:23.+'
+    testCompile 'junit:junit:4.12'
+    deployLibrary "ar.com.synergian:wagon-git:0.3.0"
+}
